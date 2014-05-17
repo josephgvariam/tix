@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dubaidrums_tickets_domain_PaypalTransaction" items="${paypaltransactions}" z="QjzaQP6gjD8qV7978qy+pq4+VhQ=">
+        <table:table data="${paypaltransactions}" id="l_com_dubaidrums_tickets_domain_PaypalTransaction" path="/paypaltransactions" z="vR/K4UgzhJ0OoLdCfXcIMTQ+wa8=">
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_txnId" property="txnId" z="tdmfXvmsz8Xel+aGR4ss/XVkt94="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_currency" property="currency" z="ebj9mxngaBzQfjmjyS6JwA14TNg="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_firstName" property="firstName" z="ccR76w4zu13Bh+IuSsIzlnqNusM="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_lastName" property="lastName" z="i426hgXqDEh9VrKMj5IqyhRC5j0="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_email" property="email" z="/zdtkTGR9Ss+ihur+VJK/doZHHk="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_PaypalTransaction_total" property="total" z="rb2hBgvriQ3Yq6IQybXKx5TcIOI="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <util:panel id="title" title="Create TIX App">
+
+    <h3>Create TIX App</h3>
+    
+    <form action="download/tix" method="POST">    
+    	<label for="event_id">Event Name</label>
+    	<input id="event_id" type="text" name="eventname" value=""  />eg: FMDD18102013
+    	<br /><br />
+    	    	    	
+    	<div class="submit" id="form_submit" >
+          <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+          <input id="proceed" type="submit" value="Generate"/>
+        </div>
+    </form>
+    
+  </util:panel>
+  
+  
+<script type="text/javascript">
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'event_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Event Name', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+</script>
+</div>

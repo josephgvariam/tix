@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dubaidrums_tickets_domain_TransactionLog" object="${transactionlog}" path="/transactionlogs" z="J8llrqtOZMeyVGiDYtIRRZ5eSiQ=">
+        <field:display date="true" dateTimePattern="${transactionLog_tstamp_date_format}" field="tstamp" id="s_com_dubaidrums_tickets_domain_TransactionLog_tstamp" object="${transactionlog}" z="HPZJu4mzaGNCFxFs7E4v1zoQXU8="/>
+        <field:display field="message" id="s_com_dubaidrums_tickets_domain_TransactionLog_message" object="${transactionlog}" z="HXBq4AE6ywhKlL60iASt6Vwql74="/>
+        <field:display field="code" id="s_com_dubaidrums_tickets_domain_TransactionLog_code" object="${transactionlog}" z="uJ5HyMA+/OlSWAQ6X1RxxDgkY4s="/>
+        <field:display field="txn" id="s_com_dubaidrums_tickets_domain_TransactionLog_txn" object="${transactionlog}" z="kiZAtWSdu91ChmaUYDK+f9FM4N4="/>
+    </page:show>
+</div>

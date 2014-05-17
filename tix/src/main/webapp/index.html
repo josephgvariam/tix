@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>TIX</title>
+   <script src="jquery-1.8.3.min.js"></script>
+   <link rel="stylesheet" href="tix.css" />
+</head>
+<body>
+<div class="container">
+		<div id="links">
+				<a href="/tix/search.html" target="_blank">Search</a>
+				<a href="/tix/reports.html" target="_blank">Reports</a>
+		</div>
+   <section id="fetch">
+		<input type="text" placeholder="Transaction ID" id="txn" />
+		<div id="status"></div>
+		
+   </section>
+   <br/>
+   <section id="details">
+   </section>
+</div>
+
+
+<script>
+function pad(val, len) {
+	val = String(val);
+	len = len || 2;
+	while (val.length < len) val = "0" + val;
+	return val;
+}
+
+function beep() {
+
+    if (!(window.audioContext || window.webkitAudioContext)) {
+        throw Error("Your browser does not support Audio Context.");
+    }
+    
+    var ctx = new (window.audioContext || window.webkitAudioContext);
+    var osc = ctx.createOscillator();
+    osc.type = 2;
+    osc.connect(ctx.destination);
+    osc.noteOn(0);
+
+    setTimeout(function() {
+        osc.noteOff(0);
+    }, 300);
+
+}
+
+
+
+function getStatusHtml(status){
+	var s = status.split("#");
+	return "<img src='"+s[0]+".png' /><p>"+s[1]+"</p><br/>";
+}
+
+$(document).ready(function(){
+	$("#txn").focus();
+	
+    var ctx = new (window.audioContext || window.webkitAudioContext);
+    
+    
+	
+	//$('#txn').bind("propertychange keyup input paste", function(event){
+	$('#txn').keypress( function(event){
+		if ( event.which == 13 ) {
+		var txnid = $("#txn").val();
+		txnid = txnid.replace("#","");
+		txnid = txnid.replace("%","");
+		
+		if(txnid.length != 0){
+			$.getJSON("http://localhost:8080/tix/paypaltransactions/"+txnid, function(t) {
+				if(t.txnId && t.txnId===txnid){
+					
+					var items = t.items;
+					var logs = t.logs;
+					items.sort(function(a,b) { return parseFloat(a.itemNumber) - parseFloat(b.itemNumber) } );
+					logs.sort(function(a,b) { return parseInt(a.tstamp) - parseFloat(b.tstamp) } );
+					
+					var s	 = "<strong>Txn Id: </strong>"+t.txnId+"<br/><strong>Name: </strong>"+t.firstName+" "+t.lastName+"<br/><strong>Email: </strong>"+t.email+"<br/><strong>Contact: </strong>"+t.contactNumber+"<br/><h2>Items</h2><table><thead><tr><th>Name</th><th>Item Number</th><th>Quantity</th><th>Price</th></tr></thead>";
+					
+					$.each(t.items, function(i,item){
+						s = s + "<tr><td>"+item.name+"</td><td>"+item.itemNumber+"</td><td>"+item.quantity+"</td><td>"+item.price+"</td></tr>";
+					});
+					
+					s = s + "</table>";
+					
+					s = s + "<h2>Log</h2><table><thead><tr><th>Time</th><th>Code</th><th>Message</th></tr></thead>";
+					
+					$.each(t.logs, function(i,log){
+						var d = new Date(log.tstamp);
+						var x = pad(d.getDate())+"/"+pad(d.getMonth()+1)+"/"+d.getFullYear()+" "+pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
+						s = s + "<tr><td>"+x+"</td><td>"+log.code+"</td><td>"+log.message+"</td></tr>";
+					});					
+					
+					s = s + "</table>";
+					
+					$('#details').html(s);
+					$('#status').html(getStatusHtml(t.status));
+					$("#txn").select();
+				}
+				else{
+					$('#details').html("");
+					$('#status').html(getStatusHtml('3#Transaction Not Found'));
+					$("#txn").select();
+				}
+				
+				
+				
+				var osc = ctx.createOscillator();
+			    osc.type = 2;
+			    osc.connect(ctx.destination);
+				osc.noteOn(0);
+				setTimeout(function() {
+			        osc.noteOff(0);
+			    }, 300);
+
+			});
+		}
+		}
+	});
+	
+});
+</script>
+</body>
+</html>

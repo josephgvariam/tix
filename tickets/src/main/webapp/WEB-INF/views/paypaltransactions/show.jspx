@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dubaidrums_tickets_domain_PaypalTransaction" label="Transaction Details" object="${paypaltransaction}" path="/paypaltransactions" z="user-managed">
+        <field:display field="txnId" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_txnId" object="${paypaltransaction}" z="77rePxImiwg9NRbNeSUs+xtF3G4="/>
+        <!--  field:display field="currency" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_currency" object="${paypaltransaction}" z="0bbtx1esp4CqZa9tdEL7c2NgUQM="/-->
+        <field:display field="firstName" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_firstName" object="${paypaltransaction}" z="mL8pdIeMhVEARkXDFRzbr0PJ4Yo="/>
+        <field:display field="lastName" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_lastName" object="${paypaltransaction}" z="ytFx7wPgPZupeJ3AOD/BnuxY3xo="/>
+        <field:display field="email" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_email" object="${paypaltransaction}" z="X3NLPXd9s88XooFCqlJw7D7YK84="/>
+        <field:display field="total" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_total" object="${paypaltransaction}" z="vxsbVAYj9FM7HsZjqVlw6sE05kc="/>
+        <field:display field="contactNumber" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_contactNumber" object="${paypaltransaction}" z="uQQFEgf1Uen2Zo9hHgAJtGNVmZc="/>
+    </page:show>
+    <page:list id="pl_com_dubaidrums_tickets_domain_Item" items="${paypaltransaction.items}" label="Items" z="O7gF6qn3JYBaFNTmfzvvtIRWjUA=">
+        <table:table data="${paypaltransaction.items}" id="l_com_dubaidrums_tickets_domain_Item" path="/items" z="tljw636wQtTOO2lG3m7wu4QG+eI=">
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_name" property="name" z="ed/5PBuCk5dpmP+GwtAio6HOjLk="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_itemNumber" property="itemNumber" z="QTbrGvOrbBAmrlzLKpmvbVT8Z6o="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_quantity" property="quantity" z="Rs3D4Pe6qJOrLKW/UX0f3RKtJpQ="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_price" property="price" z="fMMNVubELHcSBQgMGFlM7TOMeus="/>
+        </table:table>
+    </page:list>
+    <page:list id="pl_com_dubaidrums_tickets_domain_TransactionLog" items="${paypaltransaction.logs}" label="Logs" z="h9oE+WDQrc8O0auf53KZjA11eWE=">
+        <table:table data="${paypaltransaction.logs}" id="l_com_dubaidrums_tickets_domain_TransactionLog" path="/transactionlogs" z="CdvRoW14j4K+rcaqdgGwHV0zk5g=">
+            <table:column date="true" dateTimePattern="yyyy-MM-dd HH:mm:ss" id="c_com_dubaidrums_tickets_domain_TransactionLog_tstamp" property="tstamp" z="Br/Zx4rRvJWFYX6s4Dhktt1Mbp8="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_TransactionLog_message" property="message" z="8yCrI23CJ0jloqlSf+2J+mRaprY="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_TransactionLog_code" property="code" z="bZfdkvcoM5Jses2AnPvPxWS9oFk="/>
+        </table:table>
+    </page:list>
+</div>

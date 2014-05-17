@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <jsp:output omit-xml-declaration="yes"/>
+  <util:panel id="title" title="Generate Ticket">
+
+    <h3>Generate Tickets</h3>
+    
+    <form action="generateticket" method="POST">
+    
+    	<label for="event_id">Event Name</label>
+    	<input id="event_id" type="text" name="event" value=""  />eg: FMDD18102013
+    	<br /><br />
+    	<label for="eventdate_id">Event Date</label>
+    	<input id="eventdate_id" type="text" name="eventdate" />eg: Oct 18 2013
+    <br /><br />
+
+    	
+    	<label for="firstName_id">First Name</label>
+    	<input id="firstName_id" name="firstName" type="text" />
+    	<br /><br />
+    	
+    	<label for="lastName_id">Last Name</label>
+    	<input id="lastName_id" name="lastName" type="text" />
+    	<br /><br />
+    	
+    	<label for="email_id">Email</label>
+    	<input id="email_id" name="email" type="email" />
+    	<br /><br />
+    	
+    	<label for="contactNumber_id">Contact Number</label>
+    	<input id="contactNumber_id" name="contactNumber" type="text" />
+    	<br /><br />
+    	
+    	<label for="total_id">Total</label>
+    	<input id="total_id" name="total" type="text" />
+    	<br /><br />
+    	
+    	<label for="currency_id">Currency</label>
+    	<input id="currency_id" name="currency" type="text" value="AED"/>
+    	<br /><br /><br />
+    	
+    	
+    	
+    	
+    	<label for="numAdults_id" style="">Number Adults</label>
+    	<input id="numAdults_id" name="numAdults" type="text" style="float: left;width:100px;"/>
+    	
+    	<label for="adultRate_id" style="width:50px;">Adult Rate</label>
+    	<input id="adultRate_id" name="adultRate" type="text" style="float: left;"/>
+    	
+    	<label for="amtAdults_id" style="width:50px;">Adult Amount</label>
+    	<input id="amtAdults_id" name="amtAdults" type="text" style="float: left;"/>        	
+    	<br /><br /><br /><br />
+
+    	<label for="numChild_id" style="">Number Children</label>
+    	<input id="numChild_id" name="numChild" type="text" style="float: left;width:100px;"/>
+    	
+    	<label for="childRate_id" style="width:50px;">Child Rate</label>
+    	<input id="childRate_id" name="childRate" type="text" style="float: left;"/>
+    	
+    	<label for="amtChild_id" style="width:50px;">Amount</label>
+    	<input id="amtChild_id" name="amtChild" type="text" style="float: left;"/>
+    	<br /><br /><br /><br />
+    	
+    	<label for="numBaby_id" style="">Number Babies</label>
+    	<input id="numBaby_id" name="numBaby" type="text" style="float: left;width:100px;"/>
+    	<label for="amtBaby_id" style="width:50px;">Amount</label>
+    	<input id="amtBaby_id" name="amtBaby" type="text" style="float: left;" value="0"/>
+    	<br /><br /><br /><br />
+    	
+    	
+    	<label for="comment">Comment</label>
+    	<input id="comment" name="comment" type="text"  style="float: left;width:300px;"/>
+    	<br /><br />
+    	    	    	
+    	<div class="submit" id="form_submit" >
+          <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+          <input id="proceed" type="submit" value="Generate"/>
+        </div>
+    </form>
+    
+  </util:panel>
+  
+  
+<script type="text/javascript">
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'currency_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Currency eg: AED or USD', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'firstName_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'First Name', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'event_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Event Name', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'eventdate_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Event Date', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'lastName_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Last Name', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'email_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Email', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'total_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Total Transaction Amount', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+  Spring.addDecoration(new Spring.ElementDecoration({elementId : 'contactNumber_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: 'Contact Number', invalidMessage: 'invalid', required : true, missingMessage : 'required' }}));
+</script>
+</div>

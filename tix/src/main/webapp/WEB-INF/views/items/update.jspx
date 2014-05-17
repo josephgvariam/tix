@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_dubaidrums_tickets_domain_Item" modelAttribute="item" path="/items" versionField="Version" z="Q77UMm0/vl8gVw5gaLRx9JfJHQo=">
+        <field:input field="name" id="c_com_dubaidrums_tickets_domain_Item_name" required="true" z="ax2PVR+wiSfNDdkGxkbcRUdtY1E="/>
+        <field:input field="itemNumber" id="c_com_dubaidrums_tickets_domain_Item_itemNumber" required="true" z="ouOLRPmeQ4ymTQFcBYArMuumGU0="/>
+        <field:input field="quantity" id="c_com_dubaidrums_tickets_domain_Item_quantity" required="true" z="eVszpOkhqt05LRi0QbKM11ade5A="/>
+        <field:input field="price" id="c_com_dubaidrums_tickets_domain_Item_price" required="true" z="0sNj08dzzFUq7n/3ivwnGT8hw0k="/>
+        <field:select field="txn" id="c_com_dubaidrums_tickets_domain_Item_txn" itemValue="id" items="${paypaltransactions}" path="/paypaltransactions" z="8PngjCIweOjnU1ugt7RK1YNPRC4="/>
+    </form:update>
+</div>

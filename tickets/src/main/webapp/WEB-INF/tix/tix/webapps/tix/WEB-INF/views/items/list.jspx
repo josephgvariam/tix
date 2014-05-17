@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dubaidrums_tickets_domain_Item" items="${items}" z="O7gF6qn3JYBaFNTmfzvvtIRWjUA=">
+        <table:table data="${items}" id="l_com_dubaidrums_tickets_domain_Item" path="/items" z="tljw636wQtTOO2lG3m7wu4QG+eI=">
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_name" property="name" z="ed/5PBuCk5dpmP+GwtAio6HOjLk="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_itemNumber" property="itemNumber" z="QTbrGvOrbBAmrlzLKpmvbVT8Z6o="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_quantity" property="quantity" z="Rs3D4Pe6qJOrLKW/UX0f3RKtJpQ="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_price" property="price" z="fMMNVubELHcSBQgMGFlM7TOMeus="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_Item_txn" property="txn" z="pXH8DFH/RFrNZXotJNh6uBhDQxs="/>
+        </table:table>
+    </page:list>
+</div>

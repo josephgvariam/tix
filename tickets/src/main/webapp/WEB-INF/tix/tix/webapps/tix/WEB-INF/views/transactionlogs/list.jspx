@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dubaidrums_tickets_domain_TransactionLog" items="${transactionlogs}" z="h9oE+WDQrc8O0auf53KZjA11eWE=">
+        <table:table data="${transactionlogs}" id="l_com_dubaidrums_tickets_domain_TransactionLog" path="/transactionlogs" z="CdvRoW14j4K+rcaqdgGwHV0zk5g=">
+            <table:column date="true" dateTimePattern="${transactionLog_tstamp_date_format}" id="c_com_dubaidrums_tickets_domain_TransactionLog_tstamp" property="tstamp" z="Br/Zx4rRvJWFYX6s4Dhktt1Mbp8="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_TransactionLog_message" property="message" z="8yCrI23CJ0jloqlSf+2J+mRaprY="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_TransactionLog_code" property="code" z="bZfdkvcoM5Jses2AnPvPxWS9oFk="/>
+            <table:column id="c_com_dubaidrums_tickets_domain_TransactionLog_txn" property="txn" z="HFvkmR+NW1Yxn1nZxRj3Qm2vg9U="/>
+        </table:table>
+    </page:list>
+</div>

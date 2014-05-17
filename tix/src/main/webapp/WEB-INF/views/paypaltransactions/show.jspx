@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dubaidrums_tickets_domain_PaypalTransaction" object="${paypaltransaction}" path="/paypaltransactions" z="+7aOy7W6BwxOkzsKtNQJnfpzq+E=">
+        <field:display field="txnId" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_txnId" object="${paypaltransaction}" z="77rePxImiwg9NRbNeSUs+xtF3G4="/>
+        <field:display field="currency" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_currency" object="${paypaltransaction}" z="0bbtx1esp4CqZa9tdEL7c2NgUQM="/>
+        <field:display field="firstName" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_firstName" object="${paypaltransaction}" z="mL8pdIeMhVEARkXDFRzbr0PJ4Yo="/>
+        <field:display field="lastName" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_lastName" object="${paypaltransaction}" z="ytFx7wPgPZupeJ3AOD/BnuxY3xo="/>
+        <field:display field="email" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_email" object="${paypaltransaction}" z="X3NLPXd9s88XooFCqlJw7D7YK84="/>
+        <field:display field="total" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_total" object="${paypaltransaction}" z="vxsbVAYj9FM7HsZjqVlw6sE05kc="/>
+        <field:display field="contactNumber" id="s_com_dubaidrums_tickets_domain_PaypalTransaction_contactNumber" object="${paypaltransaction}" z="uQQFEgf1Uen2Zo9hHgAJtGNVmZc="/>
+    </page:show>
+</div>

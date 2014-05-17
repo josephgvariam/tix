@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_dubaidrums_tickets_domain_TransactionLog" modelAttribute="transactionLog" path="/transactionlogs" render="${empty dependencies}" z="3seixWh7GiMfcYbPtwYtj09Ym8E=">
+        <field:datetime dateTimePattern="${transactionLog_tstamp_date_format}" field="tstamp" id="c_com_dubaidrums_tickets_domain_TransactionLog_tstamp" required="true" z="7GiUn2hDyHL4SUgRJkGp6DB5L+o="/>
+        <field:input field="message" id="c_com_dubaidrums_tickets_domain_TransactionLog_message" required="true" z="NcIZGAtEgbHHBWGJkkp4cH108io="/>
+        <field:input field="code" id="c_com_dubaidrums_tickets_domain_TransactionLog_code" required="true" z="R4FeIIjl/orRx1Tq9quGL12Et6s="/>
+        <field:select field="txn" id="c_com_dubaidrums_tickets_domain_TransactionLog_txn" itemValue="id" items="${paypaltransactions}" path="/paypaltransactions" z="gDZXWLg1YXJoOHD8x2vS6+76MQA="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_dubaidrums_tickets_domain_TransactionLog" render="${not empty dependencies}" z="xWvrlIicYhjAljpkNXzvq3WZ0gU="/>
+</div>

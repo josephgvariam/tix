@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>TIX Search</title>
+   <script src="jquery-1.8.3.min.js"></script>
+   <link rel="stylesheet" href="tix.css" />
+</head>
+<body>
+<div class="container">
+   <section id="fetch">
+		<input type="text" placeholder="Search" id="txn" />
+   </section>
+   <br/>
+   <section id="details">
+   <h2>Results</h2>
+   	
+   	<table id="results"><thead><tr><th>Txn ID</th><th>Name</th><th>Email</th><th>Contact</th><th>Items</th></tr></thead></table>
+   	
+   </section>
+</div>
+
+
+<script>
+$(document).ready(function(){
+	$("#txn").focus();
+
+	$('#txn').keypress( function(event){
+		if ( event.which == 13 ) {
+			$("#results").empty();
+			$("#results").append("<thead><tr><th>Txn ID</th><th>Name</th><th>Email</th><th>Contact</th><th>Items</th></tr></thead></table>");
+			
+			var txnid = $("#txn").val();
+			txnid = txnid.replace("#","");
+			txnid = txnid.replace("%","");
+			
+			if(txnid.length != 0){
+				$.getJSON("http://localhost:8080/tix/search/"+txnid, function(results) {
+					$.each(results, function(i, val) {
+						  $("#results").append("<tr><td>"+val.txnId+"</td><td>"+val.firstName+" "+val.lastName+"</td><td>"+val.email+"</td><td>"+val.contactNumber+"</td><td>"+val.itums+"</td></tr>");
+					});
+				});
+			}
+		}
+	});
+	
+});
+</script>
+</body>
+</html>

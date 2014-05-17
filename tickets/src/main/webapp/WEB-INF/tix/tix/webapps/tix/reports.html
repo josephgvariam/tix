@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>TIX Reports</title>
+   <script src="jquery-1.8.3.min.js"></script>
+   <link rel="stylesheet" href="tix.css" />
+</head>
+<body>
+<h1>Reports</h1>
+<div id="stats"></div>
+<div class="container">
+   <section id="notarrived">
+   <h2 id="notarrivedcount"></h2>
+       <table id="notarrivedtable"><thead><tr><th>Txn ID</th><th>Name</th><th>Email</th><th>Contact</th><th>Items</th></tr></thead></table>   	
+   </section>
+   <section id="arrived">
+   <h2 id="arrivedcount"></h2>
+       <table id="arrivedtable"><thead><tr><th>Txn ID</th><th>Name</th><th>Email</th><th>Contact</th><th>Items</th></tr></thead></table>   	
+   </section>   
+</div>
+
+
+<script>
+function getStatHtml(counts){
+	var s=counts.split("#");
+	return "<table id='statsTable'><tr><td><strong>Tickets</strong></td><td>"+s[0]+"/"+s[1]+"</td></tr><tr><td><strong>Arrived Adults</strong></td><td>"+s[2]+"/"+s[3]+"</td></tr><tr><td><strong>Arrived Kids</strong></td><td>"+s[4]+"/"+s[5]+"</td></tr></table>";
+}
+
+$(document).ready(function(){
+	$.getJSON("http://localhost:8080/tix/stats/", function(t) {
+		$('#stats').html(getStatHtml(t));
+	});
+	
+	
+	$.getJSON("http://localhost:8080/tix/reports/", function(results) {
+		var arrived = 0;
+		var narrived = 0;
+		$.each(results, function(i, val) {
+			if(val.scanned){
+				$("#arrivedtable").append("<tr><td>"+val.txnId+"</td><td>"+val.firstName+" "+val.lastName+"</td><td>"+val.email+"</td><td>"+val.contactNumber+"</td><td>"+val.itums+"</td></tr>");
+				arrived++;
+		    }
+		    else{
+		    	$("#notarrivedtable").append("<tr><td>"+val.txnId+"</td><td>"+val.firstName+" "+val.lastName+"</td><td>"+val.email+"</td><td>"+val.contactNumber+"</td><td>"+val.itums+"</td></tr>");
+		    	narrived++;
+			}
+		});
+		
+		$("#notarrivedcount").append("Not Arrived ("+narrived+")");
+		$("#arrivedcount").append("Arrived ("+arrived+")");	
+	});
+	
+});
+</script>
+</body>
+</html>

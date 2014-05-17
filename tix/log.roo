@@ -1,0 +1,43 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-21 18:29:31
+project --topLevelPackage com.dubaidrums.tickets --projectName tix --java 6 --packaging JAR
+jpa setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT --userName tickets --password Goathead247 --databaseName ticketsDB/ticketsDB
+entity jpa --class com.dubaidrums.tickets.domain.PaypalTransaction
+entity jpa --class com.dubaidrums.tickets.domain.Item
+entity jpa --class com.dubaidrums.tickets.domain.TransactionLog
+focus --class ~.domain.Item
+field string --fieldName name --notNull
+field string --fieldName itemNumber --notNull
+field string --fieldName quantity --notNull
+field string --fieldName price --notNull
+focus --class ~.domain.PaypalTransaction
+field string --fieldName txnId --notNull --unique
+field string --fieldName currency --notNull
+field string --fieldName firstName --notNull
+field string --fieldName lastName --notNull
+field string --fieldName email --notNull
+field string --fieldName total --notNull
+field string --fieldName contactNumber --notNull
+focus --class ~.domain.TransactionLog
+field date --fieldName tstamp --type java.util.Date --notNull --dateTimeFormatPattern "yyyy-MM-dd HH:mm:ss"
+field string --fieldName message --notNull
+field string --fieldName code --notNull
+focus --class ~.domain.PaypalTransaction
+field set --fieldName items --type ~.domain.Item --cardinality ONE_TO_MANY --mappedBy txn
+focus --class ~.domain.Item
+field reference --fieldName txn --type ~.domain.PaypalTransaction --cardinality MANY_TO_ONE 
+focus --class ~.domain.PaypalTransaction
+field set --fieldName logs --type ~.domain.TransactionLog --cardinality ONE_TO_MANY --mappedBy txn
+focus --class ~.domain.TransactionLog
+field reference --fieldName txn --type ~.domain.PaypalTransaction --cardinality MANY_TO_ONE 
+web mvc setup
+web mvc all --package com.dubaidrums.tickets.web
+json all
+web mvc json all --package com.dubaidrums.tickets.web
+security setup
+logging setup --package WEB --level DEBUG 
+finder list --class ~.domain.PaypalTransaction
+finder add --finderName findPaypalTransactionsByTxnIdEquals
+// script --file tx.roo
+perform eclipse
+exit
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-22 22:48:44
